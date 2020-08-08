@@ -1,6 +1,6 @@
-import React from "react";
-import { graphql, StaticQuery } from "gatsby";
-import PageLayout from "../components/PageLayout";
+import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
+import PageLayout from '../components/PageLayout';
 
 const IndexPage = () => (
   <PageLayout>

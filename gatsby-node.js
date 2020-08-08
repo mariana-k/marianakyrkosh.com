@@ -51,9 +51,9 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create Page pages.
-        const pageTemplate = path.resolve("./src/templates/page.js");
+        const pageTemplate = path.resolve('./src/templates/page.js');
         const portfolioUnderContentTemplate = path.resolve(
-          "./src/templates/portfolioUnderContent.js"
+          './src/templates/portfolioUnderContent.js'
         );
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
@@ -70,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
             // can query data specific to each page.
             path: `/${edge.node.slug}/`,
             component: slash(
-              edge.node.template === "portfolio_under_content.php"
+              edge.node.template === 'portfolio_under_content.php'
                 ? portfolioUnderContentTemplate
                 : pageTemplate
             ),
@@ -108,9 +108,7 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors);
             reject(result.errors);
           }
-          const portfolioTemplate = path.resolve(
-            "./src/templates/portfolio.js"
-          );
+          const portfolioTemplate = path.resolve('./src/templates/portfolio.js');
           // We want to create a detailed page for each
           // portfolio node. We'll just use the WordPress Slug for the slug.
           _.each(result.data.allWordpressWpPortfolio.edges, edge => {
@@ -125,40 +123,55 @@ exports.createPages = ({ graphql, actions }) => {
       })
       // ==== END PORTFOLIO ====
 
-      // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
+      // ==== BLOG POSTS ====
       .then(() => {
-        graphql(
-          `
-            {
-              allWordpressPost {
-                edges {
-                  node {
-                    id
-                    title
-                    slug
-                    excerpt
-                    content
-                  }
+        graphql(`
+          {
+            allWordpressPost {
+              edges {
+                node {
+                  excerpt
+                  wordpress_id
+                  date(formatString: "Do MMM YYYY HH:mm")
+                  title
+                  content
+                  slug
                 }
               }
             }
-          `
-        ).then(result => {
+          }
+        `).then(result => {
           if (result.errors) {
             console.log(result.errors);
             reject(result.errors);
           }
-          const postTemplate = path.resolve("./src/templates/post.js");
-          // We want to create a detailed page for each
-          // post node. We'll just use the WordPress Slug for the slug.
-          // The Post ID is prefixed with 'POST_'
-          _.each(result.data.allWordpressPost.edges, edge => {
+
+          const posts = result.data.allWordpressPost.edges;
+          const postsPerPage = 2;
+          const numberOfPages = Math.ceil(posts.length / postsPerPage);
+          const blogPostListTemplate = path.resolve('./src/templates/blogPostList.js');
+
+          Array.from({ length: numberOfPages }).forEach((page, index) => {
             createPage({
-              path: `/post/${edge.node.slug}/`,
-              component: slash(postTemplate),
-              context: edge.node,
+              component: slash(blogPostListTemplate),
+              path: index === 0 ? '/blog' : `/blog/${index + 1}`,
+              context: {
+                posts: posts.slice(index * postsPerPage, index * postsPerPage + postsPerPage),
+                numberOfPages,
+                currentPage: index + 1,
+              },
             });
           });
+
+          const pageTemplate = path.resolve('./src/templates/page.js');
+          _.each(posts, post => {
+            createPage({
+              path: `/post/${post.node.slug}`,
+              component: slash(pageTemplate),
+              context: post.node,
+            });
+          });
+
           resolve();
         });
       });

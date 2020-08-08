@@ -1,6 +1,6 @@
-import React from "react";
-import PageLayout from "../components/PageLayout";
-import PortfolioItems from "../components/PortfolioItems";
+import React from 'react';
+import PageLayout from '../components/PageLayout';
+import PortfolioItems from '../components/PortfolioItems';
 
 export default ({ pageContext }) => (
   <PageLayout>

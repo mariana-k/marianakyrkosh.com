@@ -1,6 +1,7 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import MainMenu from "./MainMenu";
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import MainMenu from './MainMenu';
+import Meta from './Meta';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
@@ -16,11 +17,12 @@ const LayoutWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const PageLayout = ({ children }) => (
+const PageLayout = props => (
   <div>
+    <Meta />
     <GlobalStyles />
     <MainMenu />
-    <LayoutWrapper>{children}</LayoutWrapper>
+    <LayoutWrapper>{props.children}</LayoutWrapper>
   </div>
 );
 

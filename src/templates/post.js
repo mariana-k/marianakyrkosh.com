@@ -1,5 +1,5 @@
-import React from "react";
-import PageLayout from "../components/PageLayout";
+import React from 'react';
+import PageLayout from '../components/PageLayout';
 
 export default ({ pageContext }) => (
   <PageLayout>

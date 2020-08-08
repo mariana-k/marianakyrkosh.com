@@ -1,6 +1,6 @@
-import React from "react";
-import PageLayout from "../components/PageLayout";
-import styled from "styled-components";
+import React from 'react';
+import PageLayout from '../components/PageLayout';
+import styled from 'styled-components';
 
 const FeaturedImage = styled.img`
   max-width: 300px;
@@ -11,11 +11,7 @@ export default ({ pageContext }) => (
   <PageLayout>
     <h1>{pageContext.title}</h1>
     <strong>Website url: </strong>
-    <a
-      href={pageContext.acf.portfolio_url}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={pageContext.acf.portfolio_url} target="_blank" rel="noopener noreferrer">
       {pageContext.acf.portfolio_url}
     </a>
     <div>
