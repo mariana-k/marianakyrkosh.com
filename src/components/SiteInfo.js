@@ -18,6 +18,11 @@ const SiteLogo = styled.img`
   height: 50px;
 `;
 
+const getLogoUrl = data => {
+  if (data.alt_text !== 'Logo') return null;
+  return <SiteLogo key={data.id} src={data.source_url} alt={data.alt_text} />;
+};
+
 const SiteInfo = () => (
   <>
     <StaticQuery
@@ -44,19 +49,7 @@ const SiteInfo = () => (
       `}
       render={props => (
         <SiteInfoWrapper>
-          <Link to="/">
-            {props.allWordpressWpMedia.edges.map(edge => {
-              if (edge.node.alt_text === 'Logo') {
-                return (
-                  <SiteLogo
-                    key={edge.node.id}
-                    src={edge.node.source_url}
-                    alt={edge.node.alt_text}
-                  />
-                );
-              }
-            })}
-          </Link>
+          <Link to="/">{props.allWordpressWpMedia.edges.map(edge => getLogoUrl(edge.node))}</Link>
           <SiteTitle>{props.allWordpressSiteMetadata.edges[0].node.name}</SiteTitle>
           <div>{props.allWordpressSiteMetadata.edges[0].node.description}</div>
         </SiteInfoWrapper>
