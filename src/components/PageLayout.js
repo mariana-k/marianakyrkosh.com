@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #loaded {
-    dispalay: none;
+    display: block !important;
   }
 `;
 const useStyles = makeStyles(styles);
@@ -31,8 +31,9 @@ const PageLayout = props => {
 
   useEffect(() => {
     // Update the document title using the browser API
-    document.getElementById('loaded').styles.display = 'block';
-  });
+   
+    document.getElementById('loaded').style.display = 'none';
+  }, []);
   return (
     <div id="loaded">
       <Meta />

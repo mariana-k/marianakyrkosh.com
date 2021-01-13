@@ -27,7 +27,7 @@ const FooterMenu = () => {
       render={props => (
         <List className={classes.list}>
           {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
-            <ListItem className={classes.inlineBlock}>
+            <ListItem className={classes.inlineBlock} key={item.object_slug}>
               <Link href={`/${item.object_slug}`} key={item.title} className={classes.block}>
                 {item.title}
               </Link>
