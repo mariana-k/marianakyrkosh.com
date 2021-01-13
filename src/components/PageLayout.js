@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Meta from './Meta';
 import classNames from 'classnames';
@@ -19,21 +19,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 !important;
     padding: 0 !important; 
   }
-
-  #loaded {
-    display: block !important;
-  }
 `;
 const useStyles = makeStyles(styles);
 
 const PageLayout = props => {
   const classes = useStyles();
 
-  useEffect(() => {
-    // Update the document title using the browser API
-   
-    document.getElementById('loaded').style.display = 'none';
-  }, []);
   return (
     <div id="loaded">
       <Meta />
