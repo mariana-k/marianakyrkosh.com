@@ -35,7 +35,7 @@ const PageLayout = props => {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 200,
+          height: 400,
           color: 'white',
         }}
         {...props}

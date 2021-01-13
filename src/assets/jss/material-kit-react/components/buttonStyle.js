@@ -56,6 +56,7 @@ const buttonStyle = {
       height: '18px',
       marginRight: '4px',
       verticalAlign: 'middle',
+      transition: 'fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
     },
     '&$justIcon': {
       '& .fab,& .fas,& .far,& .fal,& .material-icons': {

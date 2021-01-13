@@ -90,41 +90,7 @@ export default function HeaderLinks(props) {
                 color="transparent"
                 className={classes.navLink}
               >
-                <LinkedIn />
-              </Button>
-            </Tooltip>
-          </ListItem>
-          <ListItem className={classes.listItem}>
-            <Tooltip
-              id="facebook-tooltip"
-              title="Follow me on Facebook"
-              placement={defaultWidth > 959 ? 'top' : 'left'}
-              classes={{ tooltip: classes.tooltip }}
-            >
-              <Button
-                color="transparent"
-                href="https://www.facebook.com/mariana.kyrkosh"
-                target="_blank"
-                className={classes.navLink}
-              >
-                <Facebook />
-              </Button>
-            </Tooltip>
-          </ListItem>
-          <ListItem className={classes.listItem}>
-            <Tooltip
-              id="instagram-tooltip"
-              title="Follow me on Instagram"
-              placement={defaultWidth > 959 ? 'top' : 'left'}
-              classes={{ tooltip: classes.tooltip }}
-            >
-              <Button
-                color="transparent"
-                href="https://www.instagram.com/mariana.kyrkosh"
-                target="_blank"
-                className={classes.navLink}
-              >
-                <Instagram />
+                LinkedIn
               </Button>
             </Tooltip>
           </ListItem>
