@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Meta from './Meta';
 import classNames from 'classnames';
@@ -24,7 +24,10 @@ const useStyles = makeStyles(styles);
 
 const PageLayout = props => {
   const classes = useStyles();
-
+  useEffect(() => {
+    setTimeout(function(){ document.getElementById('loaded').style.display = 'block'; }, 500);
+    
+  }, []);
   return (
     <div id="loaded">
       <Meta />

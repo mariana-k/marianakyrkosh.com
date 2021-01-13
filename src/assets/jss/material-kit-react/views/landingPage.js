@@ -1,6 +1,9 @@
 import { container, title } from '../../material-kit-react';
 
 const landingPageStyle = {
+  loaded: {
+    display: FilterNone,
+  },
   container: {
     zIndex: '12',
     color: '#000000',
