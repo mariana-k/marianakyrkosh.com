@@ -33,7 +33,7 @@ export default ({ pageContext }) => (
     <Pagination>
       {Array.from({ length: pageContext.numberOfPages }).map((page, index) => (
         <PageNumberWrapper key={index} isCurrentPage={index + 1 === pageContext.currentPage}>
-          <PageNumber to={index === 0 ? '/blog' : `/blog/${index + 1}`}>{index + 1}</PageNumber>
+          <PageNumber to={index === 0 ? '/blog-2' : `/blog-2/${index + 1}`}>{index + 1}</PageNumber>
         </PageNumberWrapper>
       ))}
     </Pagination>

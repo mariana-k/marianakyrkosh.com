@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: '.env',
+});
+
 module.exports = {
   siteMetadata: {
     title: `Mariana Kyrkosh - Web and Apps Develoment`,
@@ -14,9 +18,9 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'demo.wp-api.org' or 'www.example-site.com'
          */
-        baseUrl: 'localhost:10004/index.php',
+        baseUrl: process.env.API_URL,
         // The protocol. This can be http or https.
-        protocol: 'http',
+        protocol: process.env.API_PROTOCOL,
         // The rest api route prefix that your WordPress site is using.
         // Sometimes this is modified by WordPress plugins.
         // If not set, it uses the default of "wp-json"
@@ -97,6 +101,7 @@ module.exports = {
           '**/users',
           '**/menus',
           '**/portfolio',
+          '**/blog-2',
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: [],
@@ -133,8 +138,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `img`,
+        path: `${__dirname}/src/assets/img`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -148,7 +153,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/cropped-logo.png`, // This path is relative to the root of the site.
+        icon: `src/assets/img/cropped-logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
