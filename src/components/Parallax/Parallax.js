@@ -33,7 +33,7 @@ export default function Parallax(props) {
     var windowScrollTop = typeof window !== `undefined` ? window.pageYOffset / 3 : 0;
     setTransform('translate3d(0,' + windowScrollTop + 'px,0)');
   };
-  const { filter, className, children, style, image, small } = props;
+  const { filter, className, children, style, small } = props;
   const classes = useStyles();
   const parallaxClasses = classNames({
     [classes.parallax]: true,
@@ -46,7 +46,7 @@ export default function Parallax(props) {
       className={parallaxClasses}
       style={{
         ...style,
-        background: black,
+        background: 'black',
         transform: transform,
       }}
     >
