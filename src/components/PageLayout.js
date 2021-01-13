@@ -40,7 +40,7 @@ const PageLayout = props => {
         }}
         {...props}
       />
-      <Parallax filter image={require('../assets/img/bg.jpg')}>
+      <Parallax filter>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={8}>
