@@ -26,7 +26,7 @@ const PageLayout = props => {
   const classes = useStyles();
 
   React.useEffect(() => {
-    setTimeout(function(){ document.getElementById('loaded').style.display = 'block'; }, 500);
+    setTimeout(function(){ document.getElementById('loaded').style.display = 'block'; }, 100);
   });
 
   return (
