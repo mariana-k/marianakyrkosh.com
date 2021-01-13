@@ -2,7 +2,7 @@ import { container, title } from '../../material-kit-react';
 
 const landingPageStyle = {
   loaded: {
-    display: FilterNone,
+    display: 'none',
   },
   container: {
     zIndex: '12',
