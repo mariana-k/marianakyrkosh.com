@@ -62,7 +62,7 @@ export default function Header(props) {
     </Link>
   );
   return (
-    <AppBar className={`loaded ${appBarClasses}`}>
+    <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>

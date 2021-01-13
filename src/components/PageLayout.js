@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Meta from './Meta';
 import classNames from 'classnames';
@@ -24,12 +24,13 @@ const useStyles = makeStyles(styles);
 
 const PageLayout = props => {
   const classes = useStyles();
-  useEffect(() => {
+
+  React.useEffect(() => {
     setTimeout(function(){ document.getElementById('loaded').style.display = 'block'; }, 500);
-    
-  }, []);
+  });
+
   return (
-    <div id="loaded">
+    <div id="loaded" style={{display: "none"}}>
       <Meta />
       <GlobalStyles />
       <Header
@@ -38,7 +39,7 @@ const PageLayout = props => {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 400,
+          height: 200,
           color: 'white',
         }}
         {...props}
