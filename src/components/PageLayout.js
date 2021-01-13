@@ -35,7 +35,7 @@ const PageLayout = props => {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 400,
+          height: 200,
           color: 'white',
         }}
         {...props}
@@ -43,7 +43,7 @@ const PageLayout = props => {
       <Parallax filter>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem xs={12} sm={12} md={8}>
+            <GridItem xs={12} sm={12} md={12}>
               <h1 className={classes.title}>Software Design and Development</h1>
               <h4 className={classes.subtitle}>
                 Building MVPs and POCs for startups using the MERN stack: MongoDB, Express, React,

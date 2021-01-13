@@ -8,7 +8,8 @@ const landingPageStyle = {
   },
   title: {
     ...title,
-    display: 'inline-block',
+    display: 'block',
+    textAlign: 'center',
     position: 'relative',
     marginTop: '30px',
     minHeight: '32px',
@@ -17,7 +18,9 @@ const landingPageStyle = {
   },
   subtitle: {
     fontSize: '1.313rem',
-    maxWidth: '500px',
+    display: 'block',
+    textAlign: 'center',
+    maxWidth: '700px',
     margin: '10px auto 0',
     color: '#ffffff',
   },
