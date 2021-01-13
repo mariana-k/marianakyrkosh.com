@@ -74,7 +74,7 @@ export default function HeaderLinks(props) {
               target="_blank"
               className={classes.navLink}
             >
-              <CloudDownload className={classes.icons} /> Download CV
+             Download CV
             </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
