@@ -32,7 +32,7 @@ export default function Footer(props) {
           <FooterMenu />
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with <Favorite className={classes.icon} /> by{' '}
+          &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by{' '}
           <a href="/" className={aClasses}>
             Mariana Kyrkosh
           </a>{' '}
