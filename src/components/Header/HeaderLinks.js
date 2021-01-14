@@ -74,7 +74,7 @@ export default function HeaderLinks(props) {
               target="_blank"
               className={classes.navLink}
             >
-             Download CV
+              <CloudDownload className={classes.icons} /> Download CV
             </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
@@ -90,7 +90,7 @@ export default function HeaderLinks(props) {
                 color="transparent"
                 className={classes.navLink}
               >
-                LinkedIn
+                <LinkedIn />
               </Button>
             </Tooltip>
           </ListItem>

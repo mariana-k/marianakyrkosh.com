@@ -22,7 +22,7 @@ const IndexPage = () => (
         <div>
           {props.allWordpressPage.edges.map(page => (
             <div key={page.node.id}>
-              <h1>{page.node.title}</h1>
+              <h1><a href={page.node.uri}>{page.node.title}</a></h1>
               <p dangerouslySetInnerHTML={{ __html: page.node.content }} />
             </div>
           ))}
