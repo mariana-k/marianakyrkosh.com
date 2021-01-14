@@ -1,36 +1,53 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 import PageLayout from '../components/PageLayout';
+import styles from '../assets/jss/material-kit-react/components/footerStyle';
 
+const StyledDiv = styled.div`
+  @media screen and (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+  }
+`;
+const useStyles = makeStyles(styles);
 const IndexPage = () => {
-
-  return (<PageLayout>
-    <StaticQuery
-      query={graphql`
-        {
-          allWordpressPage {
-            edges {
-              node {
-                id
-                title
-                content
+  const classes = useStyles();
+  const aClasses = classNames({
+    [classes.a]: true,
+  });
+  return (
+    <PageLayout>
+      <StaticQuery
+        query={graphql`
+          {
+            allWordpressPage {
+              edges {
+                node {
+                  id
+                  title
+                  link
+                }
               }
             }
           }
-        }
-      `}
-      render={props => (
-        <>
-          {props.allWordpressPage.edges.map(page => (
-            <div key={page.node.id}>
-              <h1><a href={page.node.uri}>{page.node.title}</a></h1>
-              <div dangerouslySetInnerHTML={{ __html: page.node.content }} />
-            </div>
-          ))}
-        </>
-      )}
-    />
-  </PageLayout>
-)};
+        `}
+        render={props => (
+          <StyledDiv>
+            {props.allWordpressPage.edges.map(page => (
+              <h3 key={page.node.id}><Link className={aClasses} to={page.node.link}>{page.node.title}</Link></h3>
+            ))}  
+          </StyledDiv>
+        )}
+      />
+    </PageLayout>
+  );
+};
 
 export default IndexPage;

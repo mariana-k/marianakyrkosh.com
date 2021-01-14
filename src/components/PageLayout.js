@@ -30,7 +30,7 @@ const PageLayout = props => {
   });
 
   return (
-    <div id="loaded" style={{display: "none"}}>
+    <div id="loaded" style={{ display: 'none' }}>
       <Meta />
       <GlobalStyles />
       <Header
@@ -39,7 +39,7 @@ const PageLayout = props => {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 200,
+          height: 100,
           color: 'white',
         }}
         {...props}
@@ -57,9 +57,7 @@ const PageLayout = props => {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        {props.children}
-      </div>
+      <div className={classNames(classes.main, classes.mainRaised)}>{props.children}</div>
       <Footer />
     </div>
   );
