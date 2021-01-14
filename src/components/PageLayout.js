@@ -58,7 +58,7 @@ const PageLayout = props => {
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>{props.children}</div>
+        {props.children}
       </div>
       <Footer />
     </div>
