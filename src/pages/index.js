@@ -32,7 +32,7 @@ const IndexPage = () => {
                 node {
                   id
                   title
-                  link
+                  path
                 }
               }
             }
@@ -41,7 +41,7 @@ const IndexPage = () => {
         render={props => (
           <StyledDiv>
             {props.allWordpressPage.edges.map(page => (
-              <h3 key={page.node.id}><Link className={aClasses} to={page.node.link}>{page.node.title}</Link></h3>
+              <h3 key={page.node.id}><Link className={aClasses} to={page.node.path}>{page.node.title}</Link></h3>
             ))}  
           </StyledDiv>
         )}
